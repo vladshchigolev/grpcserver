@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package api;
+
+option go_package = "pkg/api";
+
+service BookStorage {
+  rpc getBooks(Author) returns (Books) {}
+  rpc getAuthors(Book) returns (Authors) {}
+}
+message Authors {
+  string names = 1;
+}
+message Books {
+  string titles = 1;
+}
+
+message Author { // определение типа сообщений Author
+  string name = 1;
+}
+
+message Book {
+  string title = 1;
+}
